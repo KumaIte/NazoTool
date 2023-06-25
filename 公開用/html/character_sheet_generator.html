@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>キャラクターシート生成器</title>
+    <link rel="stylesheet" href="../css/style_main.css">
+    <style>
+        input[type="text"]:hover{
+            background-color:white;
+            color: black;
+        }
+        input[type="number"]:hover{
+            background-color:white;
+            color: black;
+        }
+        .input{
+            transform: scale(1.5);
+            margin-left: 10px;
+            padding-left: 10px;
+            padding-right: 10px;
+            background-color: rgb(111, 111, 255);
+            color: white;
+        }
+        .input:hover{
+            background-color: rgb(79, 79, 185);
+        }
+        .option{
+            width: 200px;
+        }
+    </style>
+    <script>
+        function input()
+        {
+            let url = "./character_sheet.html";
+            let dummy_url = "";
+            let name = document.getElementById("name").value;
+            const age = document.getElementById("age").value;
+            const sex = document.getElementById("sex").value;
+            const occupation = document.getElementById("occupation").value;
+            const ver = document.getElementById("ver").value;
+            
+            name = name.split("?");
+            name  = name.join("？");
+            if(name != ""){ dummy_url += "&name=" + name; }
+            if(age != ""){ dummy_url += "&age=" + age}
+            dummy_url += "&sex=" + sex;
+            if(occupation != ""){ dummy_url += "&occupation=" + occupation; }
+            dummy_url += "&ver=" + ver;
+
+            if(dummy_url!="")
+            {
+                dummy_url = "?" + dummy_url.slice(1);
+            }
+            url += dummy_url;
+
+            window.open(url);
+        }
+        const occupation_data=
+        [
+            {"occupation":"医師","num":[0,0]},
+            {"occupation":"アニマルセラピスト","num":[0,1]},
+            {"occupation":"看護師","num":[0,2]},
+            {"occupation":"救急救命士","num":[0,3]},
+            {"occupation":"形成外科医","num":[0,4]},
+            {"occupation":"精神科医","num":[0,5]},
+            {"occupation":"闇医者","num":[0,6]},
+            {"occupation":"内科医","num":[0,7]},
+            {"occupation":"外科医","num":[0,8]},
+            {"occupation":"薬剤師","num":[0,9]},
+            {"occupation":"介護士","num":[0,10]},
+            {"occupation":"臨床技師","num":[0,11]},
+            {"occupation":"医学生","num":[0,12]},
+            {"occupation":"看護学生","num":[0,13]},
+            {"occupation":"メンタルセラピスト","num":[0,14]},
+            {"occupation":"企業カウンセラー","num":[0,15]},
+            {"occupation":"スクールカウンセラー","num":[0,16]},
+            {"occupation":"院内セラピスト","num":[0,17]},
+            {"occupation":"エンジニア","num":[1,0]},
+            {"occupation":"設計技術者","num":[1,1]},
+            {"occupation":"機関士","num":[1,2]},
+            {"occupation":"整備士","num":[1,3]},
+            {"occupation":"設計建築士","num":[1,4]},
+            {"occupation":"工業高校生","num":[1,5]},
+            {"occupation":"工業専門学生","num":[1,6]},
+            {"occupation":"教信者","num":[2,0]},
+            {"occupation":"カルト信者","num":[2,1]},
+            {"occupation":"極左活動家","num":[2,2]},
+            {"occupation":"極右活動家","num":[2,3]},
+            {"occupation":"警察官","num":[3,0]},
+            {"occupation":"専任捜査官","num":[3,1]},
+            {"occupation":"交番勤務","num":[3,2]},
+            {"occupation":"地域課","num":[3,3]},
+            {"occupation":"交通課職員","num":[3,4]},
+            {"occupation":"機動隊員","num":[3,5]},
+            {"occupation":"交通機動隊員","num":[3,6]},
+            {"occupation":"警察官僚","num":[3,7]},
+            {"occupation":"警察学校生徒","num":[3,8]},
+            {"occupation":"芸術家","num":[4,0]},
+            {"occupation":"画家","num":[4,1]},
+            {"occupation":"彫刻家","num":[4,2]},
+            {"occupation":"書家","num":[4,3]},
+            {"occupation":"漫画家","num":[4,4]},
+            {"occupation":"カメラマン","num":[4,5]},
+            {"occupation":"デザイナー","num":[4,6]},
+            {"occupation":"映画監督","num":[4,7]},
+            {"occupation":"美大生","num":[4,8]},
+            {"occupation":"芸大生","num":[4,9]},
+            {"occupation":"ダンサー","num":[4,10]},
+            {"occupation":"デザイナー","num":[4,11]},
+            {"occupation":"古物研究科","num":[5,0]},
+            {"occupation":"古書店主","num":[5,1]},
+            {"occupation":"骨董品店主","num":[5,2]},
+            {"occupation":"博物館学芸員","num":[5,3]},
+            {"occupation":"図書館司書","num":[5,4]},
+            {"occupation":"郷土史家","num":[5,5]},
+            {"occupation":"美大生","num":[5,6]},
+            {"occupation":"考古学部生","num":[5,7]},
+            {"occupation":"コンピューター技術者","num":[6,0]},
+            {"occupation":"プログラマー","num":[6,1]},
+            {"occupation":"システムエンジニア","num":[6,2]},
+            {"occupation":"ネットワーク管理者","num":[6,3]},
+            {"occupation":"ゲームクリエーター","num":[6,4]},
+            {"occupation":"ハッカー","num":[6,5]},
+            {"occupation":"工業高校生","num":[6,6]},
+            {"occupation":"工業専門学生","num":[6,7]},
+            {"occupation":"作家","num":[7,0]},
+            {"occupation":"小説家","num":[7,1]},
+            {"occupation":"翻訳家","num":[7,2]},
+            {"occupation":"脚本家","num":[7,3]},
+            {"occupation":"漫画家","num":[7,4]},
+            {"occupation":"文学部生","num":[7,5]},
+            {"occupation":"自衛官","num":[8,0]},
+            {"occupation":"防衛大生","num":[8,1]},
+            {"occupation":"自衛官","num":[8,2]},
+            {"occupation":"陸上自衛隊員","num":[8,3]},
+            {"occupation":"海上自衛隊員","num":[8,4]},
+            {"occupation":"自衛隊パイロット","num":[8,5]},
+            {"occupation":"民間軍会社メンバー","num":[8,6]},
+            {"occupation":"ジャーナリスト","num":[9,0]},
+            {"occupation":"新聞記者","num":[9,1]},
+            {"occupation":"通信社員","num":[9,2]},
+            {"occupation":"雑誌記者","num":[9,3]},
+            {"occupation":"雑誌編集者","num":[9,4]},
+            {"occupation":"テレビリポーター","num":[9,5]},
+            {"occupation":"通信アナウンサー","num":[9,6]},
+            {"occupation":"ニュースブロガー","num":[9,7]},
+            {"occupation":"経済学部生","num":[9,8]},
+            {"occupation":"宗教家","num":[10,0]},
+            {"occupation":"僧侶","num":[10,1]},
+            {"occupation":"尼僧","num":[10,2]},
+            {"occupation":"神職","num":[10,3]},
+            {"occupation":"巫女","num":[10,4]},
+            {"occupation":"神父","num":[10,5]},
+            {"occupation":"牧師","num":[10,6]},
+            {"occupation":"修道女","num":[10,7]},
+            {"occupation":"山伏","num":[10,8]},
+            {"occupation":"易者","num":[10,9]},
+            {"occupation":"宗教学部生","num":[10,10]},
+            {"occupation":"哲学部生","num":[10,11]},
+            {"occupation":"商店主","num":[11,0]},
+            {"occupation":"店員","num":[11,1]},
+            {"occupation":"コンビニ店員","num":[11,2]},
+            {"occupation":"飲食店員","num":[11,3]},
+            {"occupation":"販売店店員","num":[11,4]},
+            {"occupation":"店主","num":[11,5]},
+            {"occupation":"ネットショップ経営者","num":[11,6]},
+            {"occupation":"経営学部生","num":[11,7]},
+            {"occupation":"私立探偵","num":[12,0]},
+            {"occupation":"探偵社員","num":[12,1]},
+            {"occupation":"興信所職員","num":[12,2]},
+            {"occupation":"保険調査員","num":[12,3]},
+            {"occupation":"法律家","num":[12,4]},
+            {"occupation":"弁護士","num":[12,5]},
+            {"occupation":"公認会計士","num":[12,6]},
+            {"occupation":"税理士","num":[12,7]},
+            {"occupation":"司法書士","num":[12,8]},
+            {"occupation":"行政書士","num":[12,9]},
+            {"occupation":"弁護士","num":[12,10]},
+            {"occupation":"公証人","num":[12,11]},
+            {"occupation":"法学家","num":[12,12]},
+            {"occupation":"法科学生","num":[12,13]},
+            {"occupation":"水産業従事者","num":[13,0]},
+            {"occupation":"漁師","num":[13,1]},
+            {"occupation":"養殖業者","num":[13,2]},
+            {"occupation":"水産加工業者","num":[13,3]},
+            {"occupation":"ダイバー","num":[13,4]},
+            {"occupation":"海女","num":[13,5]},
+            {"occupation":"海人","num":[13,6]},
+            {"occupation":"水産大学生","num":[13,7]},
+            {"occupation":"野球選手","num":[14,0]},
+            {"occupation":"Jリーグ選手","num":[14,1]},
+            {"occupation":"ゴルファー","num":[14,2]},
+            {"occupation":"ボクサー","num":[14,3]},
+            {"occupation":"プロレスラー","num":[14,4]},
+            {"occupation":"関取","num":[14,5]},
+            {"occupation":"登山家","num":[14,6]},
+            {"occupation":"射撃選手","num":[14,7]},
+            {"occupation":"体育大学生","num":[14,8]},
+            {"occupation":"体育教師","num":[14,9]},
+            {"occupation":"大学教授","num":[15,0]},
+            {"occupation":"冒険家教授","num":[15,1]},
+            {"occupation":"評論家","num":[15,2]},
+            {"occupation":"研究機関従事者","num":[15,3]},
+            {"occupation":"タレント","num":[16,0]},
+            {"occupation":"アイドル","num":[16,1]},
+            {"occupation":"俳優","num":[16,2]},
+            {"occupation":"声優","num":[16,3]},
+            {"occupation":"イベント司会者","num":[16,4]},
+            {"occupation":"マジシャン","num":[16,5]},
+            {"occupation":"ダンサー","num":[16,6]},
+            {"occupation":"レースクイーン","num":[16,7]},
+            {"occupation":"音楽タレント","num":[16,8]},
+            {"occupation":"アナウンサー","num":[16,9]},
+            {"occupation":"コメディアン","num":[16,10]},
+            {"occupation":"スポーツタレント","num":[16,11]},
+            {"occupation":"コメンテーター","num":[16,12]},
+            {"occupation":"プロデューサー","num":[16,13]},
+            {"occupation":"マネージャー","num":[16,14]},
+            {"occupation":"ミュージシャン","num":[16,15]},
+            {"occupation":"ロックバンド","num":[16,16]},
+            {"occupation":"ストリートミュージシャン","num":[16,17]},
+            {"occupation":"シンガーソングライター","num":[16,18]},
+            {"occupation":"作詞家","num":[16,19]},
+            {"occupation":"作曲家","num":[16,20]},
+            {"occupation":"超心理学者","num":[17,0]},
+            {"occupation":"ゴーストハンター","num":[17,1]},
+            {"occupation":"占い師","num":[17,2]},
+            {"occupation":"スピリチュアリスト","num":[17,3]},
+            {"occupation":"霊媒師","num":[17,4]},
+            {"occupation":"ディレッタント","num":[18,0]},
+            {"occupation":"資産家","num":[18,1]},
+            {"occupation":"投資家","num":[18,2]},
+            {"occupation":"大企業の会長","num":[18,3]},
+            {"occupation":"ビルオーナー","num":[18,4]},
+            {"occupation":"ドライバー","num":[19,0]},
+            {"occupation":"タクシー運転士","num":[19,1]},
+            {"occupation":"バス運転士","num":[19,2]},
+            {"occupation":"トラック運転士","num":[19,3]},
+            {"occupation":"大富豪のお抱え運転手","num":[19,4]},
+            {"occupation":"バイク便","num":[19,5]},
+            {"occupation":"レーサー","num":[19,6]},
+            {"occupation":"パイロット","num":[19,7]},
+            {"occupation":"旅客機操縦士","num":[19,8]},
+            {"occupation":"輸送機操縦士","num":[19,9]},
+            {"occupation":"自家用操縦士","num":[19,10]},
+            {"occupation":"航空自衛官","num":[19,11]},
+            {"occupation":"放浪者","num":[19,12]},
+            {"occupation":"バックパッカー","num":[19,13]},
+            {"occupation":"自動車旅行者","num":[19,14]},
+            {"occupation":"旅打ちギャンブラー","num":[19,15]},
+            {"occupation":"屋台の的屋","num":[19,16]},
+            {"occupation":"出稼ぎ労働者","num":[19,17]},
+            {"occupation":"お遍路さん","num":[19,18]},
+            {"occupation":"農林業従事者","num":[20,0]},
+            {"occupation":"農家","num":[20,1]},
+            {"occupation":"酪農家","num":[20,2]},
+            {"occupation":"畜産業者","num":[20,3]},
+            {"occupation":"養蜂業者","num":[20,4]},
+            {"occupation":"林業者","num":[20,5]},
+            {"occupation":"ハンター","num":[20,6]},
+            {"occupation":"農大学生","num":[20,7]},
+            {"occupation":"ビジネスマン","num":[21,0]},
+            {"occupation":"営業マン","num":[21,1]},
+            {"occupation":"事務員","num":[21,2]},
+            {"occupation":"金融業者","num":[21,3]},
+            {"occupation":"企業コンサルタント","num":[21,4]},
+            {"occupation":"通訳","num":[21,5]},
+            {"occupation":"秘書","num":[21,6]},
+            {"occupation":"公務員","num":[21,7]},
+            {"occupation":"経営学生","num":[21,8]},
+            {"occupation":"商業科学生","num":[21,9]},
+            {"occupation":"執事","num":[21,10]},
+            {"occupation":"メイド","num":[21,11]},
+            {"occupation":"セールスマン","num":[21,12]},
+            {"occupation":"暴力団組員","num":[22,0]},
+            {"occupation":"ヤクザ","num":[22,1]},
+            {"occupation":"極道者","num":[22,2]},
+            {"occupation":"マフィア","num":[22,3]}
+        ]
+
+        window.addEventListener("load",()=>
+        {
+            const element = document.getElementById("occupation_data");
+            let dummy_txt = "";
+            for(let i = 0; i < occupation_data.length; i++)
+            {
+                dummy_txt += '<option value="' + occupation_data[i].occupation + '"></option>';
+            }
+            element.innerHTML = dummy_txt;
+        })
+    </script>
+    <script src="../javascript/default.js"></script>
+</head>
+<body>
+    <div id="menu"></div>
+    <div class="content">
+        <h1>キャラクターシート生成器</h1>
+        <div class="description">
+            <h2>設定</h2>
+            <table style="border:solid 1px;">
+                <tr><td width="80px">名前</td><td><input type="text" id="name" class="option"></td></tr>
+                <tr><td>年齢</td><td><input type="number" min=0 max=100 class="option" id="age"></td></tr>
+                <tr><td>性別</td><td>
+                    <select id="sex" class="option">
+                        <option value="x">未設定</option>
+                        <option value="m">男</option>
+                        <option value="f">女</option>
+                    </select>
+                </td></tr>
+                <tr><td>職業</td><td>
+                    <input type="text" list="occupation_data" class="option" id="occupation">
+                    <datalist id="occupation_data">
+                        <option value="test"></option>
+                    </datalist>
+                </td></tr>
+                <tr><td>バージョン</td><td>
+                    <select id="ver" class="option">
+                        <option value="1">旧ルール</option>
+                        <option value="2">新ルール</option>
+                    </select>
+                </td></tr>
+            </table>
+            <br>
+            <input type="button" value="生成" class="input" onclick="input()">
+        </div>
+        <div class="description">
+            <h2>詳細</h2>
+            上記の項目のうち、指定したいもののみを設定してください。空白の場合、ランダムに設定されます。NPCのステータスを適当に決めたいときや、キャラシ作成の時間がない際に役立てたり、ランダム生成されたキャラを見て楽しむなどの用途でお楽しみください。
+            生成されたキャラの使用の制限は特に設けておりません。作りが荒いところがあるとは思いますが、お遊びの生成として目を瞑っていただけると幸いです。<br>
+            <p style="color: gray; font-style: italic; font-size: 12px;">できれば、キャラ作成含めてTRPGの楽しみだと思っているので、メインキャラとして使うことを推奨したくはないです……</p>
+        </div>
+    </div>
+</body>
+</html>

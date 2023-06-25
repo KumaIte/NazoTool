@@ -1,0 +1,3 @@
+diceroll.wav	nc42340.wav	https://commons.nicovideo.jp/material/nc42340
+type.mp3	nc159115.pm3	https://commons.nicovideo.jp/material/agreement/nc159115
+

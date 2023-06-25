@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>ダイスロール</title>
+    <link rel="stylesheet" href="../css/style_main.css">
+    <script src="../javascript/default.js"></script>
+    <script src="../javascript/dice.js"></script>
+    <style>
+        td{
+            text-align: center;
+            padding-left: 10px;
+            padding-right: 10px;
+            color: dimgray;
+        }
+        th{
+            text-align: center;
+            padding-left: 10px;
+            padding-right: 10px;
+        }
+        input.number{
+            width: 80px;
+            text-align: center;
+            font-weight: bold;
+            font-size: 20px;
+            color: dimgray;
+        }
+        input.number:hover{
+            background-color: white;
+            color: black;
+        }
+        .log{
+            text-align: left;
+            vertical-align: top;
+        }
+        .log_txt{
+            color: dimgray;
+        }
+        input[type=checkbox] {
+            transform: scale(2);
+            padding: 5px;
+            margin-left: 10px;
+        }
+        .roll_button{
+            transform: scale(1.5);
+            margin: 15px;
+            background-color: rgb(101, 101, 255);
+            color: white;
+            padding: 5px 15px 5px 15px;
+        }
+        .roll_button:hover{
+            background-color: rgb(0, 109, 156);
+        }
+    </style>
+</head>
+<body>
+    <div id="menu"></div>
+    <div class="content">
+        <h1>ダイスロール</h1>
+
+        <div id="dice_select"></div>
+
+        <div class="description">
+            <input type="button" value="テーブルの追加" onclick="addTable()">
+            <p><audio controls src="../sounds/diceroll.wav" type="audio/wav">ダイスロール音</audio></p>
+        </div>
+
+        <div class="description">
+            <h2>詳細</h2>
+            本ツールでは以下の素材を利用しています。
+            <ul>
+                <li><a href="https://commons.nicovideo.jp/material/nc42340">『ダイス音・2（2D10）』(ニコニコモンズ)</a>(閲覧日:2023/04/27)</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

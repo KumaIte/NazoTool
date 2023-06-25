@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>キャラクターシート</title>
+    <link rel="stylesheet" href="../css/style_main.css">
+    <style>
+        table, td, th{
+            border: solid 1px #000;
+            border-collapse:collapse;
+            padding: 5px;
+        }
+        table{
+            width: 100%;
+        }
+        th{
+            min-width: 100px;
+        }
+    </style>
+    <script src="../javascript/default.js"></script>
+    <script>
+        const plans =
+        [
+            {
+                "title":"固有化変換",
+                "description":"入力の配列について、重複しているものを削除して返す。ex 入力['1', '2', '3', '2'] 出力[1,2,3]"
+            },
+            {
+                "title":"シンプル画像生成",
+                "description":"単色、グラデーション、水玉模様などシンプルな画像を生成"
+            }
+        ]
+        window.addEventListener("load", ()=>
+        {
+            const element = document.getElementById("plans");
+            let dummy_txt = "<table>";
+                for(let i = 0; i < plans.length; i++)
+                {
+                    dummy_txt += "<tr><th>" + plans[i].title + "</th><td>" + plans[i].description + "</td></tr>";
+                }
+            dummy_txt += "</table>";
+            element.innerHTML = dummy_txt;
+        })
+    </script>
+</head>
+<body>
+    <div id="menu"></div>
+    <div class="content">
+        <h1>制作予定</h1>
+        <div class="description">
+            <div id="plans"></div>
+        </div>
+    </div>
+</body>
+</html>

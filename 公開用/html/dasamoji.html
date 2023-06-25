@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>ダサ文字</title>
+    <link rel="stylesheet" href="../css/style_main.css">
+    <style>
+        input[type="text"]:hover{
+            background-color: white;
+            color: black;
+        }
+        h1{
+            background:linear-gradient(to right, blue, yellow, red);
+            color: white;
+            text-shadow: 4px 6px 3px #000;
+        }
+    </style>
+    <script src="../javascript/default.js"></script>
+</head>
+<body>
+    <div id="menu"></div>
+    <div class="content">
+        <h1>ダサ文字画像ジェネレータ</h1>
+        <div class="description">
+            <div>
+                <input type="text" id="txt" value="ここに文字を入力">
+                <input type="button" onclick="generate()" value="画像生成">
+            </div>
+            <div>
+                画像サイズ
+                <input type="range" min="20" max="150" value="80" id="range">
+                フォント
+                <input type="text" id="font" list="font_list" value="">
+                <datalist  id="font_list">
+                    <option value="游明朝">游明朝</option>
+                    <option value="游ゴシック">游ゴシック</option>
+                    <option value="ＭＳ 明朝">ＭＳ 明朝</option>
+                    <option value="ＭＳ ゴシック">ＭＳ ゴシック</option>
+                    <option value="MS UI Gothic">MS UI Gothic</option>
+                    <option value="メイリオ">メイリオ</option>
+                    <option value="Meiryo UI">Meiryo UI</option>
+                    <option value="Yu Gothic UI">Yu Gothic UI</option>
+                    <option value="UD デジタル 教科書体 N-B">UD デジタル 教科書体 N-B</option>
+                    <option value="UD デジタル 教科書体 NK-B">UD デジタル 教科書体 NK-B</option>
+                    <option value="UD デジタル 教科書体 NK-R">UD デジタル 教科書体 NK-R</option>
+                    <option value="UD デジタル 教科書体 NP-B">UD デジタル 教科書体 NP-B</option>
+                    <option value="UD デジタル 教科書体 NP-R">UD デジタル 教科書体 NP-R</option>
+                    <option value="UD デジタル 教科書体 N-R">UD デジタル 教科書体 N-R</option>
+                    <option value="BIZ UDゴシック"></option>
+                    <option value="BIZ UDPゴシック"></option>
+                    <option value="BIZ UD明朝"></option>
+                    <option value="BIZ UDP明朝"></option>
+                    <option value="ぎゃーてーるみねっせんす"></option>
+                    <option value="851チカラヅヨク-かなA"></option>
+                    <option value="851チカラヅヨク-かなB"></option>
+                    <option value="851チカラヨワク"></option>
+                    <option value="851テガキカクット"></option>
+                    <option value="851マカポップ"></option>
+                    <option value="851手書き雑フォント"></option>
+                    <option value="Adorable Doll"></option>
+                    <option value="Agency FB"></option>
+                    <option value="Algerian"></option>
+                    <option value="Architects Daughter"></option>
+                    <option value="Bauhaus 93"></option>
+                    <option value="Bernard MT"></option>
+                    <option value="Blackadder ITC"></option>
+                    <option value="Bradley Hand ITC"></option>
+                    <option value="Britannic"></option>
+                    <option value="Broadway"></option>
+                    <option value="Brush Script MT"></option>
+                    <option value="Chiller"></option>
+                    <option value="Cooper"></option>
+                    <option value="DengXian"></option>
+                    <option value="DotGothic16"></option>
+                    <option value="Eater"></option>
+                    <option value="Edwardian Script ITC"></option>
+                    <option value="Elephant"></option>
+                    <option value="FangSong"></option>
+                    <option value="Forte"></option>
+                    <option value="Goudy Stout"></option>
+                    <option value="Henny Penny"></option>
+                    <option value="k8x12"></option>
+                    <option value="k8x12L"></option>
+                    <option value="k8x12S"></option>
+                    <option value="Kaushan Script"></option>
+                    <option value="KHドット兜町16"></option>
+                    <option value="KHドット秋葉原16"></option>
+                    <option value="KHドット小伝馬町12"></option>
+                    <option value="KHドット小伝馬町16"></option>
+                    <option value="KHドット神楽坂12"></option>
+                    <option value="KHドット神楽坂16"></option>
+                    <option value="KHドット人形町16"></option>
+                    <option value="KHドット道玄坂12"></option>
+                    <option value="KHドット道玄坂16"></option>
+                    <option value="KHドット日比谷24"></option>
+                    <option value="KHドット日比谷32"></option>
+                    <option value="KHドット八丁堀16"></option>
+                    <option value="ぎゃーてーるみねっせんす"></option>
+                    <option value="けいふぉんと"></option>
+                    <option value="しねきゃぷしょん"></option>
+                    <option value="トガリテ"></option>
+                    <option value="にゃしぃフォント改二"></option>
+                    <option value="はらませにゃんこ"></option>
+                    <option value="ポプらむ☆キュート"></option>
+                    <option value="ラノベPOP v2"></option>
+                    <option value="数式フォント"></option>
+                    <option value="装甲明朝"></option>
+                    <option value="美咲ゴシック"></option>
+                    <option value="美咲ゴシック第2"></option>
+                    <option value="美咲明朝"></option>
+                    <option value="HGP創英角ﾎﾟｯﾌﾟ体"></option>
+                </datalist>
+                ふと文字
+                <input type="checkbox" id="bold">
+            </div>
+            <p></p>
+            <div>
+                <canvas id="canvas" style="border:2px solid" hidden></canvas>
+            </div>
+
+            <p>
+                <input type="button" value="画像を保存" onclick="save()" hidden id="save">
+            </p>
+        </div>
+
+        <div class="description">
+            <h2>詳細</h2>
+            <p>
+                ・フォント指定について<br>
+                webから使用可能なフォントを確認する方法は(調べた限り)ないので、
+                対応させることができませんでした。もし、設定したい場合は、<br>
+                Windowsの場合、<br>
+                [スタート]→[設定]→[個人用設定]→[フォント]<br>
+                にあるフォントの名前を正確に入力してください。<br>
+                フォントの項目から、いくつか選択できるフォントがありますが、
+                <strong>動作環境で使用できるフォントが選択されている訳ではありません。</strong>
+                その点、ご注意ください。
+            </p>
+        </div>
+    </div>
+
+    <script>
+        const canvas = document.getElementById("canvas");
+        const ctx = canvas.getContext("2d");
+
+        function generate()
+        {
+            const txt = document.getElementById("txt").value;
+            const size = document.getElementById("range").value;
+            const font = document.getElementById("font").value;
+            const bold = document.getElementById("bold").checked;
+            const save = document.getElementById("save");
+
+            if(txt == "")
+            {
+                canvas.hidden = true;
+                save.hidden = true
+            }
+            else{
+                canvas.hidden=false;
+                save.hidden=false;
+            }
+
+            let size_x = size * (txt.length + 0.2);
+            let size_y = size;
+
+            canvas.width = size_x;
+            canvas.height = size_y;
+
+            if(bold == true){ctx.font = 'bold ' + size + 'px "'+ font +'"';}
+            else{ctx.font = size + 'px "'+ font +'"';}
+            ctx.lineJoin = 'round';
+            ctx.textBaseline = "left";
+            ctx.textBaseline = "top";
+
+            ctx.fillStyle = "#000";
+            //ctx.fillRect(0,0,size_x,size_y);
+
+            const grad = ctx.createLinearGradient(0,0,size_x,size_y);
+            grad.addColorStop(0.0, "#F00");
+            grad.addColorStop(0.2, "#FF0");
+            grad.addColorStop(0.4, "#0F0");
+            grad.addColorStop(0.6, "#0FF");
+            grad.addColorStop(0.8, "#00F");
+            grad.addColorStop(1.0, "#F0F");
+
+            ctx.fillStyle = grad;
+            ctx.fillText(txt,0,0);
+        }
+
+        function save()
+        {
+            const canvas = document.getElementById('canvas');
+            const txt = document.getElementById("txt").value;
+            var a = document.createElement('a');
+            a.href = canvas.toDataURL('image/png');
+            a.download = txt + '.png';
+            a.click();
+        }
+    </script>
+</body>
+</html>

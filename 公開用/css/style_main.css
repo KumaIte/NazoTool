@@ -1,0 +1,122 @@
+
+body{
+    background-color:azure;
+    margin: 0;
+}
+
+nav.menu{
+    width: 100%;
+    height: 70px;
+    background-color: dimgray;
+    padding-top: 5px;
+    box-sizing: border-box;
+    /*position: fixed;*/
+    top: 0;
+    left: 0;
+}
+ul.menu{
+    display: flex;
+}
+li.menu{
+    list-style: none;
+}
+a.menu{
+    display: block;
+    text-decoration: none;
+    color:rgb(170,170,170);
+    margin-right: 35px;
+}
+a.menu:hover{
+    color:white;
+}
+
+div.content{
+    padding: 10px;
+}
+
+
+h1{
+    border: 5px solid #000000;
+    font-size: 32px;
+    font-weight: bold;
+    margin: 0 0 20px;
+    padding: 15px 20px;
+    text-align: center;
+    margin-top: 10px;
+    letter-spacing: 20px;
+}
+div.setting{
+    border: 5px solid #000000;
+    background-color: rgb(220,220,220);
+    margin: 0 0 20px;
+    padding: 20px;
+}
+div.result{
+    border: 5px solid #000000;
+    background-color: white;
+    margin: 0 0 20px;
+    padding: 20px;
+}
+div.discription{
+    border: 5px solid #000000;
+    background-color: white;
+    margin: 0 0 20px;
+    padding: 20px;
+}
+div.description{
+    border: 5px solid #000000;
+    background-color: white;
+    margin: 0 0 20px;
+    padding: 20px;
+}
+h2{
+    font-size: 22px;
+    font-weight: bold;
+    margin-top: 10px;
+    letter-spacing: 5px;
+}
+h3{
+    padding-left: 15px;
+    color: dimgray;
+    letter-spacing: 3px;
+}
+h4{
+    padding-left: 20px;
+    color: gray;
+}
+table.setting{
+    width: 80%;
+}
+td.setting{
+    padding: 10px;
+    font-weight: bold;
+}
+select.setting{
+    width: 200px;
+    padding: 10px;
+    font-weight: bold;
+    border-radius: 5px;
+    padding-left: 20px;
+}
+input.setting{
+    padding: 5px;
+    padding-left: 20px;
+    padding-right: 20px;
+    border-radius: 5px;
+    font-weight: bold;
+    border: 2px solid black;
+    background-color: rgb(170,170,170);
+    color: white;
+    letter-spacing: 5px;
+}
+input:hover{
+    background-color:rgb(220,220,220);
+    color: white;
+}
+li.result{
+    margin: 10px;
+    font-size: 22px;
+    letter-spacing: 5px;
+    text-decoration: underline;
+    list-style: none;
+}

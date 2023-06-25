@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>蒼頡タイピング</title>
+    <link rel="stylesheet" href="../css/style_main.css">
+    <style>
+        .keyboard
+        {
+            width: 100%;
+            table-layout: fixed;
+        }
+        td{
+            border: none;
+            padding: 15px 0px 15px 0px;
+        }
+        .key{
+            text-align: center;
+            border: solid 1px black;
+        }
+        .option
+        {
+            width: 100%;
+        }
+        .explain
+        {
+            color: gray;
+            font-style: italic;
+            font-size: 14px;
+        }
+        input[type="button"]
+        {
+            color: white;
+            background-color: #0075ff;
+            padding: 5px 15px 5px 15px;
+            font-size: 18px;
+        }
+        input[type="button"]:hover
+        {
+            background-color: #0052b0;
+        }
+        .game_table
+        {
+            width: 100%;
+        }
+        .game_th
+        {
+            width: 64px;
+        }
+        #subject
+        {
+            font-size: 64px;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        #structure
+        {
+            text-align: center;
+            vertical-align: bottom;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        #time
+        {
+            text-align: right;
+        }
+        #score
+        {
+            width: 100%;
+            font-size: 64px;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+    </style>
+    <script src="../javascript/default.js"></script>
+    <script src="../javascript/souketsu.js"></script>
+</head>
+<body>
+    <div id="menu"></div>
+    <div class="content">
+        <h1>蒼頡輸入法タイピング</h1>
+        <div class="description">
+            <div id="option">
+                <p>
+                    難易度
+                    <input type="range" min="0" max="2" value="0" onclick="changeOption('difficulty',this.value)">
+                    <br>
+                    <div class="explain">難易度が高いほど、単語がより長く、漢字の構造も複雑なものがでやすくなります。</div>
+                </p>
+                <p>
+                    構成表示
+                    <input type="checkbox" checked onclick="changeOption('structure',this.checked)">
+                    <br>
+                    <div class="explain">☑すると、漢字の構成要素が表示されます。</div>
+                </p>
+                <p>
+                    キーボード表示
+                    <input type="checkbox" checked onclick="changeOption('keyboard',this.checked)">
+                    <br>
+                    <div class="explain">☑すると、キーボードが表示されます。</div>
+                </p>
+                <p>
+                    <input type="button" value="開始 ( Press 'Space' to start )" onclick="gameStart()">
+                </p>
+            </div>
+            <div id="game_div" hidden>
+                <table class="game_table">
+                    <tr>
+                        <th class="game_th">残り時間</th><td id="time">60 秒</td>
+                    </tr>
+                    <tr>
+                        <th class="game_th">お題</th><td id="subject">亀上龍宮的生活</td>
+                    </tr>
+                    <tr id="structure_tr">
+                        <th class="game_th">構成</th><td id="structure">?</td>
+                    </tr>
+                </table>
+            </div>
+            <div id="result" hidden>
+                <p id="score"></p>
+                <p>
+                    <input type="button" value="メニュー" onclick="toMenu()">
+                </p>
+            </div>
+            <div id="keyboard">
+            </div>
+        </div>
+        <div class="description">
+            <h3>詳細</h3>
+            <h4>
+                誤タイプをした場合、時間の進む速度が少し増加します。
+                お題の単語をタイピングし終えることができると、残り時間がタイピングした文字数に応じて増加します。
+                制作主は蒼頡輸入法を使用しない普通の日本人です。誤った解釈をしている可能性があること、ご容赦ください。
+            </h4>
+            <h3>参考サイト</h3>
+            <h4>
+                <a href="https://ja.wiktionary.org/wiki">ウィクショナリー</a> (2023/5/15 閲覧)<br>
+                <a href="https://kanji.jitenon.jp/">漢字辞典オンライン</a> (2023/5/15 閲覧)<br>
+                <a href="https://www.kanjipedia.jp/">漢字ペディア</a> (2023/5/15 閲覧)<br>
+                <a href="https://uub.jp/ctv">都道府県市町村データベース</a>
+                <a href="https://commons.nicovideo.jp/material/nc159115">ニコニ・コモンズ(PCキータイピング音A)</a> (2023/5/15 閲覧)<br>
+                <p><audio controls src="../sounds/type.mp3" type="audio/mp3">ダイスロール音</audio></p>
+            </h4>
+        </div>
+    </div>
+</body>
+</html>

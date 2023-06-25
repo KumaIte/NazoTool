@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>シンプル画像生成</title>
+    <link rel="stylesheet" href="../css/style_main.css">
+    <style>
+        input[type=number]{
+            background-color: white;
+            color: black;
+        }
+        input[type=number]:hover{
+            background-color: white;
+            color: black;
+        }
+        .input{
+            background-color: rgb(95, 95, 255);
+            font-size: 20px;
+            font-weight: bold;
+            letter-spacing: 5px;
+            color:  white;
+            padding: 5px 15px 5px 15px;
+        }
+        .input:hover{
+            background-color: rgb(65, 65, 198);
+        }
+        .setting1{
+            width: 100%;
+        }
+        table{
+            width: 100%;
+            border: none;
+            border-bottom: solid 1px #000;
+        }
+        td{
+            border: none;
+            border-right: dashed 1px #000;
+            border-bottom: solid 3px #000;
+            padding: 5px 10px 20px 5px;
+        }
+        th{
+            border: none;
+            border-right: dashed 1px #000;
+            border-bottom: solid 3px #000;
+            padding: 10px;
+            background-color: gray;
+            color: white;
+            letter-spacing: 5px;
+        }
+    </style>
+    <script src="../javascript/default.js"></script>
+    <script src="../javascript/simple_picture_generator.js"></script>
+</head>
+<body>
+    <div id="menu"></div>
+    <div class="content">
+        <h1>シンプル画像生成</h1>
+        <div class="discription">
+            <p>画像サイズ　縦：<input type="number" min="1" max="4096" id="canvas_size_y" value="400">　横：<input type="number" min="1" max="4096" id="canvas_size_x" value="600"></p>
+            <p><input type="button" value="画像を保存" onclick="save()"></p>
+            <p><input hidden type="button" value="生成" class="input" onclick="generate()"></p>
+            <canvas id="canvas" hidden="true"></canvas>
+            
+            <div></div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>表示</th><th>色</th><th>模様</th><th><input type="button" value="項目の追加" onclick="addTable()"></th>
+                    </tr>
+                </thead>
+                <tbody id="setting">
+                </tbody>
+            </table>
+            <br>
+            <p>
+                <input type="button" value="項目の追加" onclick="addTable()">
+            </p>
+        </div>
+    </div>
+</body>
+</html>

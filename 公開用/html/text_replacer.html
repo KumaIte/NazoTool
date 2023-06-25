@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>文字置換</title>
+    <link rel="stylesheet" href="../css/style_main.css">
+    <script src="../javascript/default.js"></script>
+    <script src="../javascript/text_replacer.js"></script>
+    <style>
+        .desplay_block{
+            display:inline-block;
+            vertical-align: top;
+        }
+        input[type=textbox]{
+            background-color: white;
+            color: dimgray;
+        }
+        input[type=textbox]:hover{
+            color: black;
+        }
+        input[type=checkbox]{
+            transform:scale(1.4);
+        }
+        .replace_button{
+            transform: scale(1.6);
+            margin: 20px;
+            background-color: rgb(109, 109, 255);
+            color: white;
+            font-weight: bold;
+        }
+        .replace_button:hover{
+            background-color: rgb(29, 29, 193);
+        }
+    </style>
+</head>
+<body>
+    <div id="menu"></div>
+    <div class="content">
+        <h1>文字置換</h1>
+
+        <div class="description">
+            <div class="display_block" id="input_area"></div>
+            <p>
+                <div class="desplay_block">
+                    <input type="button" value="項目追加" onclick='addInputArea(1,"","")'>
+                    <input type="button" value="文字置換" onclick="replaceText()" class="replace_button">
+                </div>
+            </p>
+            <p>
+                <div class="desplay_block" id="select_area"></div>
+            </p>
+            <p>
+                <div class="desplay_block" id="sample_area"></div>
+            </p>
+        </div>
+
+        <div class="description">
+            <div class="desplay_block">
+                <div class="desplay_block">
+                    <h3>変換前</h3>
+                    <textarea id="before" cols="50" rows="20">ここに文字を入力
+改行は「\n」、タブは「\t」で設定できます。</textarea>
+                </div>
+                <div class="desplay_block">
+                    <h3>変換後</h3>
+                    <textarea id="after" cols="50" rows="20">変換後のテキストを表示</textarea>
+                </div>
+            </div>
+        </div>
+
+        <div class="description">
+            <h2>詳細</h2>
+            <p>
+                改行を入力したい場合は「\n」
+                タブを入力したい場合は「\t」
+                と、入力してください。<br>
+                「チェック」のついている項目のみ変換をします。
+                「削除」を押すと、項目ごと削除できます。
+                変換する項目を追加したい場合は「項目追加」を押してください。
+            </p>
+        </div>
+        
+    </div>
+</body>
+</html>

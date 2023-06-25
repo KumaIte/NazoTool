@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>名前生成</title>
+    <link rel="stylesheet" href="../css/style_main.css">
+    <script src="../javascript/default.js"></script>
+    <script src="../javascript/namegenerator.js"></script>
+</head>
+<body>
+    <div id="menu"></div>
+    
+    <div class="content">
+        <h1>名前生成</h1>
+        <div class="setting">
+            <h2 class="setting">設定</h2>
+
+            <div id="setting_table"></div>
+
+            <br>
+
+            <input type="button" value="生成" onclick='get_result()' class="setting">
+        </div>
+
+        <div class="result">
+            <h2>生成結果</h2>
+            <ul id="result_list"><li class="result">狩野 菜真恵</li>
+            </ul>
+        </div>
+
+        <div class="discription">
+            <h2 class="discription">詳細</h2>
+            <h3 class="discription">利用</h3>
+            <h4 class="discription">「生成」ボタンを押すと名前を生成できます。生成した名前についてはご自由にお使いください。利用の制限などは特に設けておりません。生成した名前を自身の創作物や商用などに利用する際も無許可で使用して構いません。</h4>
+            <h3 class="discription">仕組み</h3>
+            <h4 class="discription">以下「参考サイト」の名字と名前をそれぞれ適当な位置で２分割したものをランダムに組み合わせて名前を生成しています。例えば『佐藤』と『山田』という２つの名前が選ばれたとき、２つを組み合わせて『佐田』という名前が生成されます。</h4>
+            <h3 class="discription">参考サイト</h3>
+            <ul>
+                <li class="discription"><a class="discription" href="https://myoji-yurai.net/prefectureRanking.htm?prefecture=%E5%85%A8%E5%9B%BD">名字由来net</a>(閲覧日：2022/11/24)</li>
+                <li class="discription"><a class="discription" href="https://ja.wikipedia.org/wiki/Category:%E6%97%A5%E6%9C%AC%E8%AA%9E%E3%81%AE%E5%80%8B%E4%BA%BA%E5%90%8D">wikipedia</a>(閲覧日：2022/11/24)</li>
+                <li class="discription"><a class="discription" href="https://www.worldsys.org/europe">欧羅巴人名録</a>(閲覧日：2023/4/25)</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>SNS</title>
+    <link rel="stylesheet" href="../css/style_main.css">
+    <script src="../javascript/default.js"></script>
+    <script>
+        const sns_data = 
+        [
+            {
+                "title":"Twitter（準備中）",
+                "link":"https://twitter.com/takuansyamoji",
+                "description":""
+            },
+            {
+                "title":"YouTube（準備中）",
+                "link":"https://youtube.com",
+                "description":""
+            }
+        ]
+        window.addEventListener('load', ()=>
+        {
+            let element = document.getElementById("sns_list");
+            let dummy_txt = "<ul>";
+            for(let i = 0; i < sns_data.length; i++)
+            {
+                dummy_txt += '<li><a href="' + sns_data[i].link
+                    +'">' + sns_data[i].title + '</a></li>';
+            }
+            dummy_txt += '</ul>';
+            element.innerHTML = dummy_txt;
+        })
+    </script>
+</head>
+<body>
+    <div id="menu"></div>
+    <div class="content">
+        <h1>SNS</h1>
+        <div class="discription">
+            <h2>SNS一覧</h2>
+            <div id="sns_list"></div>
+            <p>
+                サイト作りは初心者且つ、独学の最中なので、
+                改善には時間は結構かかるかもしれないです。
+                <br>もし、何かありましたら、Twitterより
+                受け答えできるようにはしておきます。
+                返答には時間がかかってしまうかもしれませんが、
+                その際は申し訳ありません。
+            </p>
+        </div>
+    </div>
+</body>
+</html>
